@@ -41,6 +41,8 @@ jobs:
         run: npx vite build
         env:
           NODE_ENV: production
+          GITHUB_PAGES: 'true'
+          VITE_BASE: '/privascan/'
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

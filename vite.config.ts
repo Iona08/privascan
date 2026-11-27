@@ -1,4 +1,4 @@
-import { defineConfig, type Plugin } from 'vitest/config';
+import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -14,12 +14,28 @@ function productionCspPlugin(): Plugin {
   };
 }
 
-export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/privascan/' : '/',
-  plugins: [react(), tailwindcss(), productionCspPlugin()],
-  test: {
-    environment: 'jsdom',
-    globals: true,
-    setupFiles: ['./src/test/setup.ts'],
-  },
-}));
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, '.', '');
+  const vercel = env.VERCEL ?? (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.VERCEL;
+  const viteBase = env.VITE_BASE ?? (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.VITE_BASE;
+  const githubPages = env.GITHUB_PAGES ?? (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.GITHUB_PAGES;
+
+  let base = '/';
+  if (viteBase) {
+    base = viteBase;
+  } else if (vercel) {
+    base = '/';
+  } else if (githubPages === 'true') {
+    base = '/privascan/';
+  }
+
+  return {
+    base,
+    plugins: [react(), tailwindcss(), productionCspPlugin()],
+    test: {
+      environment: 'jsdom',
+      globals: true,
+      setupFiles: ['./src/test/setup.ts'],
+    },
+  };
+});
