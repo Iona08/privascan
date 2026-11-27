@@ -1,4 +1,3 @@
-import React, { useRef } from 'react';
 import { ChevronDown, Shield, Zap } from 'lucide-react';
 
 interface HeroProps {

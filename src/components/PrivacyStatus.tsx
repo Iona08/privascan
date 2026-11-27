@@ -1,4 +1,3 @@
-import React from 'react';
 import { ShieldCheck, Lock, Database, Wifi, Eye, Server } from 'lucide-react';
 
 const checks = [

@@ -1,6 +1,4 @@
-import React from 'react';
 import type { AuditLogEntry } from '../types/pii';
-import { CATEGORY_META } from '../types/pii';
 import { Clock, Trash2, ClipboardList } from 'lucide-react';
 
 interface AuditLogProps {

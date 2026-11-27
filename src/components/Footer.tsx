@@ -1,4 +1,3 @@
-import React from 'react';
 import { Shield, Github } from 'lucide-react';
 import { ALL_CATEGORIES, CATEGORY_META } from '../types/pii';
 

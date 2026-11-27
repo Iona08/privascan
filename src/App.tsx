@@ -22,7 +22,7 @@ import { PrivacyIndicator } from './components/PrivacyIndicator';
 import { usePIIDetection } from './hooks/usePIIDetection';
 import { useRedaction } from './hooks/useRedaction';
 import { useAuditLog } from './hooks/useAuditLog';
-import { SAMPLE_TEXT, SAMPLE_CSV } from './utils/sampleData';
+import { SAMPLE_TEXT } from './utils/sampleData';
 import { sanitizeCSVDocument } from './utils/export/csvParser';
 import { exportSanitizedCSV, exportSanitizedText } from './utils/export/csvExporter';
 import type {
@@ -32,7 +32,6 @@ import type {
   CategoryStatistics,
   PIIDetection,
 } from './types/pii';
-import { ALL_CATEGORIES } from './types/pii';
 import { AlertCircle, RotateCcw, FlaskConical, Keyboard, X } from 'lucide-react';
 
 // --- Keyboard shortcut help modal ---

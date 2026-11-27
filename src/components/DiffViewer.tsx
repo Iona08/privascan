@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import { Fragment } from 'react';
 import type { PIIDetection, RedactedSegment } from '../types/pii';
 import { CATEGORY_META } from '../types/pii';
 
@@ -53,7 +53,7 @@ function OriginalPanel({ text, detections }: { text: string; detections: PIIDete
     >
       {segments.map((seg, i) => {
         if (seg.type === 'text') {
-          return <React.Fragment key={i}>{seg.text}</React.Fragment>;
+          return <Fragment key={i}>{seg.text}</Fragment>;
         }
         const cat = seg.detection!.category;
         const colors = CATEGORY_HIGHLIGHT[cat];
@@ -97,7 +97,7 @@ function SanitizedPanel({ segments }: { segments: RedactedSegment[] }) {
     >
       {segments.map((seg, i) => {
         if (seg.type === 'text') {
-          return <React.Fragment key={i}>{seg.text}</React.Fragment>;
+          return <Fragment key={i}>{seg.text}</Fragment>;
         }
         const cat = seg.detection!.category;
         const colors = CATEGORY_HIGHLIGHT[cat];
@@ -123,7 +123,7 @@ function SanitizedPanel({ segments }: { segments: RedactedSegment[] }) {
   );
 }
 
-export function DiffViewer({ originalText, detections, segments, isCSV }: DiffViewerProps) {
+export function DiffViewer({ originalText, detections, segments, isCSV: _isCSV }: DiffViewerProps) {
   return (
     <div
       className="w-full"

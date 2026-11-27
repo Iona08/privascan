@@ -1,4 +1,3 @@
-import React from 'react';
 import type { ScanStatistics } from '../types/pii';
 import { CATEGORY_META, ALL_CATEGORIES } from '../types/pii';
 import { ShieldCheck, AlertTriangle, Scan } from 'lucide-react';

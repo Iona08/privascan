@@ -54,11 +54,6 @@ describe('CSV parser, round-trip fidelity, and per-cell sanitization', () => {
   });
 });
 
-async function readBlobText(blob: Blob): Promise<string> {
-  const buf = await blob.arrayBuffer();
-  return new TextDecoder().decode(buf);
-}
-
 describe('Export utilities: sanitized-only Blob contents and filename safety', () => {
   it('builds sanitized filenames cleanly', () => {
     expect(buildExportFilename('Pasted text', 'paste', 'txt')).toBe('sanitized_document.txt');

@@ -1,5 +1,5 @@
-import React, { useCallback, useRef, useState } from 'react';
-import { Upload, X, AlertCircle, FileText, File } from 'lucide-react';
+import { useCallback, useRef, useState } from 'react';
+import { Upload, FileText, File } from 'lucide-react';
 import type { InputSourceType } from '../types/pii';
 
 interface FileUploaderProps {
@@ -9,7 +9,6 @@ interface FileUploaderProps {
 }
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
-const ACCEPTED_TYPES = ['text/plain', 'text/csv', 'application/csv', ''];
 
 function getSourceType(fileName: string): InputSourceType {
   return fileName.toLowerCase().endsWith('.csv') ? 'csv' : 'txt';

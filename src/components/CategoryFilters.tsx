@@ -1,4 +1,3 @@
-import React from 'react';
 import type { PIICategory, CategoryFilterMap } from '../types/pii';
 import { ALL_CATEGORIES, CATEGORY_META } from '../types/pii';
 
